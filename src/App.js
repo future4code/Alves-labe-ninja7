@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Servicos from './Components/Servicos/Servicos'
+import Cadastros from './Components/Cadastros/Cadastros'
+import Home from './Components/Home/Home'
+import Header from './Components/Header/Header'
+import Footer from './Components/Footer/Footer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends React.Component {
+  state = {
+    tela: "home"
+  }
+
+  mudaTela = (telaEscolhida) => {
+    this.setState({ tela: telaEscolhida })
+  }
+
+  selecionaPagina = () => {
+    switch (this.state.tela) {
+      case "servicos":
+        return <Servicos />
+      case "cadastros":
+        return <Cadastros />
+      case "home":
+        return <Home mudaTela={this.mudaTela}/>
+      default:
+        return <Home mudaTela={this.mudaTela} />;
+    }
+  }
+
+  render() {
+
+
+    return (
+      <div>
+        <Header mudaTela={this.mudaTela} />
+        {this.selecionaPagina()}
+        <Footer />
+      </div>
+    )
+  }
 }
-
-export default App;
