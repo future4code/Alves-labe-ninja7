@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React from 'react'
 import styled from 'styled-components'
+import Filtros from '../Filtros/Filtros'
+import Ordenacao from '../Ordenação/Ordenacao'
 
 const ContainerPaginaServicos = styled.div`
   display: grid;
@@ -29,12 +31,40 @@ const CardDoServico = styled.div`
 
 export default class Servicos extends React.Component {
   state = {
-    listaDeServicos: []
+    listaDeServicos: [],
+    busca: "",
+    precoMin: "",
+    precoMax: "",
+    ordem: 1,
+    carrinho: [],
+    escolha: "title"
   }
+
+
 
   componentDidMount() {
     this.pegarServicos()
   }
+
+  atualizaOrdem = (event) => {
+    this.setState({ ordem: event.target.value })
+  }
+  atualizarBusca = (event) => {
+    this.setState({ busca: event.target.value })
+  }
+  atualizaPrecoMin = (event) => {
+    this.setState({ precoMin: event.target.value })
+  }
+  atualizaPrecoMax = (event) => {
+    this.setState({ precoMax: event.target.value })
+  }
+
+  atualizaEscolha = (ev) => {
+    this.setState({
+      escolha: ev.target.value,
+    });
+  };
+
 
   pegarServicos = () => {
     const url = "https://labeninjas.herokuapp.com/jobs"
@@ -45,6 +75,7 @@ export default class Servicos extends React.Component {
         }
       }
     ).then((resposta) => {
+      console.log(resposta)
       this.setState({ listaDeServicos: resposta.data.jobs })
 
     }).catch((erro) => {
@@ -53,24 +84,64 @@ export default class Servicos extends React.Component {
   }
 
   render() {
-    const novaListaDeServicos = this.state.listaDeServicos.map((servico) => {
-      return <CardDoServico key={servico.id}>
-        <p>{servico.title}</p>
-        <p>{servico.price}</p>
-        <p>{servico.paymentMethods}</p>
-        <p>{servico.dueDate}</p>
+   
+    
+    const novaListaDeServicos = this.state.listaDeServicos
+      .filter(elemento =>{
+        return this.state.precoMin === "" || elemento.price >= this.state.precoMin
+      })
+      .filter(elemento =>{
+        return this.state.precoMax === "" || elemento.price <= this.state.precoMax
+      })
+      .filter(elemento =>{
+        return elemento.title.toLowerCase().includes(this.state.busca.toLowerCase())
+      })
+      .sort((servicoAtual, proximoServico) => {
+        switch (this.state.escolha) {
+          case "title":
+            return (
+              this.state.ordem *
+              servicoAtual.title.localeCompare(proximoServico.title)
+            );
+          case "dueDate":
+            return (
+              this.state.ordem *
+              (new Date(servicoAtual.dueDate).getTime() -
+                new Date(proximoServico.dueDate).getTime())
+            );
+          default:
+            return this.state.ordem * (servicoAtual.price - proximoServico.price);
+        }
+      })
+      .map(elemento =>{
+      return <CardDoServico key={elemento.id}>
+      <p>{elemento.title}</p>
+      <p>{elemento.price}</p>
+      <p>{elemento.paymentMethods}</p>
+      <p>{elemento.dueDate.split("T")[0]}</p>
 
-      </CardDoServico>
-    })
-
+    </CardDoServico>
+      })
+    
     return (
       <ContainerPaginaServicos>
         <ContainerServicos>
           <h1>Serviços</h1>
           <div>
-            <input placeholder='Busca'></input>
-            <input placeholder='Valor Mínimo'></input>
-            <input placeholder='Valor máximo'></input>
+            <Filtros
+              busca={this.state.busca}
+              atualizarBusca={this.atualizarBusca}
+              precoMin={this.state.precoMin}
+              atualizaPrecoMin={this.atualizaPrecoMin}
+              precoMax={this.state.precoMax}
+              atualizaPrecoMax={this.atualizaPrecoMax} 
+             />
+            <Ordenacao atualizaOrdem={this.atualizaOrdem}
+              ordem={this.state.ordem}
+              escolha={this.state.escolha}
+              atualizaEscolha={this.atualizaEscolha}
+
+              />
           </div>
           <div>
             {novaListaDeServicos}
