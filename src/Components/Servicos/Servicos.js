@@ -118,7 +118,7 @@ export default class Servicos extends React.Component {
       <p>{elemento.title}</p>
       <p>{elemento.price}</p>
       <p>{elemento.paymentMethods}</p>
-      <p>{elemento.dueDate.split("T")[0]}</p>
+      <p>{elemento.dueDate}</p>
 
     </CardDoServico>
       })
