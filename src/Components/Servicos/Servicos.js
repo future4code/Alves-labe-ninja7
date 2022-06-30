@@ -3,6 +3,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Filtros from '../Filtros/Filtros'
 import Ordenacao from '../Ordenação/Ordenacao'
+import Carrinho from '../Carrinho/Carrinho'
+
 
 const ContainerPaginaServicos = styled.div`
   display: grid;
@@ -22,12 +24,44 @@ const ContainerCarrinho = styled.div`
   flex-direction: column;
   border: 1px solid black;
 `
+// const CardDoServico = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   border: 1px solid black;
+//   width: 20%;
+// `
 const CardDoServico = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-  width: 20%;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
 `
+const CardTodo = styled.div`
+border: 1px solid black;
+width: 100%;
+height: 100%;
+position: relative;
+transition: transform 0.8s;
+transform-style: preserve-3d;
+:hover {
+transform: rotateY(180deg)
+}
+`
+const Frente = styled.div`
+color: red;
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+`
+const Verso = styled.div`
+color: green;
+transform: rotateY(180deg);
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+`
+
 
 export default class Servicos extends React.Component {
   state = {
@@ -37,7 +71,9 @@ export default class Servicos extends React.Component {
     precoMax: "",
     ordem: 1,
     carrinho: [],
-    escolha: "title"
+    escolha: "title",
+    valorTotal: 0,
+    servicoPego: false
   }
 
 
@@ -75,12 +111,51 @@ export default class Servicos extends React.Component {
         }
       }
     ).then((resposta) => {
-      console.log(resposta)
-      this.setState({ listaDeServicos: resposta.data.jobs })
+        this.setState({ listaDeServicos: resposta.data.jobs })
+      
+
 
     }).catch((erro) => {
       alert(erro.response.data.error)
     })
+  }
+
+  adicionaAoCarrinho = (elemento) => {
+    
+    this.setState({carrinho: [elemento,...this.state.carrinho]})
+    this.setState({valorTotal: this.state.valorTotal + elemento.price})
+    alert("Produto adicionado ao carrinho!")
+  //   const url = `https://labeninjas.herokuapp.com/jobs/${elemento.id}`
+  //   const body = {
+  //     taken: true
+  //   }
+  //   axios.post(url,body,
+  //     {
+  //       headers: {
+  //         Authorization: "bf6e3327-1416-4669-b4c0-83faf70c7677"
+  //       }
+  //     }
+  //   ).then((resposta) => {
+  //     this.setState({ listaDeServicos: resposta.data.jobs })
+
+  //   }).catch((erro) => {
+  //     alert(erro.response.data.error)
+  //   })
+  //  this.pegarServicos()
+    
+  }
+
+  removerDoCarrinho = (produto) => {
+  
+    const novoCarrinho = this.state.carrinho.filter((item)=>{
+      if (item.id !== produto.id){
+        return item
+      } else {
+        return false
+      }
+    })
+    this.setState({carrinho:novoCarrinho})
+    this.setState({valorTotal:this.state.valorTotal - produto.price})
   }
 
   render() {
@@ -115,14 +190,26 @@ export default class Servicos extends React.Component {
       })
       .map(elemento =>{
       return <CardDoServico key={elemento.id}>
+        <CardTodo>
+          <Frente>
       <p>{elemento.title}</p>
       <p>{elemento.price}</p>
-      <p>{elemento.paymentMethods}</p>
-      <p>{elemento.dueDate}</p>
+      <p>{elemento.dueDate.split("T")[0]}</p>
 
+      </Frente>
+      <Verso>
+      <p>{elemento.title}</p>
+      <p>{elemento.price}</p>
+      <p>{elemento.dueDate.split("T")[0]}</p>
+      <p>{elemento.paymentMethods}</p>
+      <p>{elemento.description}</p>
+      <button onClick={()=>{this.adicionaAoCarrinho(elemento)}}>Adicionar ao Carrinho</button>
+      </Verso>
+      </CardTodo>
     </CardDoServico>
       })
-    
+
+
     return (
       <ContainerPaginaServicos>
         <ContainerServicos>
@@ -148,7 +235,9 @@ export default class Servicos extends React.Component {
           </div>
         </ContainerServicos>
         <ContainerCarrinho>
-          <h1>Carrinho</h1>
+         <Carrinho carrinho={this.state.carrinho}
+         valorTotal={this.state.valorTotal}
+         removerDoCarrinho={this.removerDoCarrinho}/>
         </ContainerCarrinho>
 
       </ContainerPaginaServicos>
