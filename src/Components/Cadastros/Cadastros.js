@@ -3,15 +3,26 @@ import styled from 'styled-components'
 import axios from 'axios'
 import Select from 'react-select'
 
+
+
+
 const ContainerPaginaCadastro = styled.div`
   display: flex;
   justify-content: center;
+  height: 74.5vh;
+  background-color: #96D0FF;
 `
 const ContainerCadastro = styled.div`
   display: flex;
   flex-direction: column;
-  width: 40%;
-  border: 1px solid black;
+  justify-content: space-between;
+  background-color: #96D0FF;
+  padding: 65px;
+  width: 50%;
+  height: 50vh;
+  margin-top: 10vh;
+  
+  border: 1px solid #96D0FF;
 
 `
 const  options = [
@@ -21,6 +32,42 @@ const  options = [
   {value: 4, label: " Pix "},
   {value: 5, label: " PayPal "},  
 ]
+
+const DivDoSelect = styled.div`
+  display: flex;
+  background-color: #96D0FF;
+  justify-content: center;
+  justify-content: space-between;
+
+`
+
+const DivAuxiliarDescritiva = styled.div`
+  display: block; 
+  width: 50%; 
+  justify-content: space-between;
+  color: #394F61;
+`
+const Header1 = styled.h1`
+  display: flex;  
+  justify-content: center;
+  font-size: xxx-large;
+`
+const InformativoCadastro = styled.p`
+  display: flex;
+  width: 30vw;  
+  margin-top: 2vh;
+  margin-left: 10vw;
+  font-size: x-large
+`
+
+const BotaoEnviar = styled.button`
+  border: 2px solid white;
+  background-color: white;
+  color: #394F61;
+  border-radius: 10px;
+  padding: 5px;
+  width: 200px;
+`
 
 
 export default class Cadastros extends React.Component {
@@ -87,12 +134,19 @@ criaServico = () => {
   render() {
     return (
       <ContainerPaginaCadastro>
-        <ContainerCadastro>
-          <input placeholder='Serviço' onChange={this.atualizaServico}/>
+        <DivAuxiliarDescritiva className='Div Auxiliar'>
+        <Header1>Seja um Ninja em segundos!</Header1>
+        <InformativoCadastro>
+        Em questão de segundos você pode cadastrar seu serviço, descrevê-lo da maneira que melhor lhe apetecer, informar o valor do mesmo
+        e um prazo para expiração da oferta. Por fim, escolha suas formas de pagamento e pronto: Você já um Ninja7
+        </InformativoCadastro>               
+        </DivAuxiliarDescritiva>
+      <ContainerCadastro>
+          <input name='Cadastre o Serviço' placeholder='Serviço' onChange={this.atualizaServico}/>
           <input placeholder='Descrição' onChange={this.atualizaDescricao}/>
           <input placeholder='Valor' type="number" onChange={this.atualizaValor}/>
           <input placeholder='Prazo' type="date" onChange={this.atualizaData}/>
-         
+          <DivDoSelect>
           <Select 
             isMulti
             options = {options}
@@ -100,32 +154,8 @@ criaServico = () => {
             onChange={this.confirmaArray}
             onSelect={this.confirmaArray}           
           />
-           <button onClick={this.criaServico}>Enviar</button>  
-          
-          {/* <fieldset>
-            <legend>Método de pagamento:</legend>
-            <div>
-              <input type="checkbox" value={this.state.paymentMethods} className="boleto" onChange={this.atualizaPagamento}/>
-              <label htmlFor="boleto"> Boleto </label>
-            </div>
-            <div>
-              <input type="checkbox" value={this.state.paymentMethods} onClick={this.atualizaPagamento} />
-              <label > Pix </label>
-            </div>
-            <div>
-              <input type="checkbox" value={this.state.paymentMethods} onClick={this.atualizaPagamento} />
-              <label > PayPal </label>
-            </div>
-            <div>
-              <input type="checkbox" value={this.state.paymentMethods} onClick={this.atualizaPagamento} />
-              <label > Cartão de Crédito </label>
-            </div>
-            <div>
-              <input type="checkbox" value={this.state.paymentMethods} onClick={this.atualizaPagamento} />
-              <label > Cartão de Débito </label>
-            </div>
-            
-          </fieldset> */}
+           <BotaoEnviar onClick={this.criaServico}>Enviar</BotaoEnviar> 
+           </DivDoSelect>
         </ContainerCadastro>
       </ContainerPaginaCadastro>
     )
