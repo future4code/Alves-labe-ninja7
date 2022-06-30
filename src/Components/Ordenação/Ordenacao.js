@@ -5,7 +5,6 @@ export default class Ordenacao extends React.Component {
         return (
             <div>
                 <div>
-                    <p>Quantidade de produtos: 6</p>
                     <select value={this.props.ordem} onChange={this.props.atualizaOrdem}>
                         <option value={1}>Crescente</option>
                         <option value={-1}>Decrescente</option>
