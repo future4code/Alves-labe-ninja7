@@ -4,6 +4,7 @@ import Cadastros from './Components/Cadastros/Cadastros'
 import Home from './Components/Home/Home'
 import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
+import { ChakraProvider } from '@chakra-ui/react'
 
 
 export default class App extends React.Component {
@@ -33,9 +34,11 @@ export default class App extends React.Component {
 
     return (
       <div>
+        <ChakraProvider>
         <Header mudaTela={this.mudaTela} />
         {this.selecionaPagina()}
         <Footer />
+        </ChakraProvider>
       </div>
     )
   }
