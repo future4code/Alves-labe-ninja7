@@ -6,6 +6,7 @@ import Select from 'react-select'
 
 
 
+
 const ContainerPaginaCadastro = styled.div`
   display: flex;
   justify-content: center;
@@ -101,12 +102,11 @@ criaServico = () => {
         }
       }
     ).then((resposta) => {
-      console.log(resposta)
-      // this.setState({  })
+      alert("Ninja cadastrado com sucesso!")
+
 
     }).catch((erro) => {
       console.log(erro)
-      // alert(erro.response.data.error)
     })
   }
 
@@ -118,9 +118,6 @@ criaServico = () => {
     this.setState({ description: event.target.value })
   }
 
-  // atualizaPagamento = (event) => {
-  //   this.setState({ paymentMethods: event.target.value })
-  // }
 
   atualizaValor = (event) => {
     this.setState({  price: event.target.value })

@@ -7,6 +7,7 @@ import Footer from './Components/Footer/Footer'
 import { ChakraProvider } from '@chakra-ui/react'
 
 
+
 export default class App extends React.Component {
   state = {
     tela: "home"
