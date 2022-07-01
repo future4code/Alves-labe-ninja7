@@ -17,7 +17,7 @@ const ContainerPaginaServicos = styled.div`
 const ContainerServicos = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+
   text-align: center;
   
   
@@ -32,7 +32,7 @@ flex-wrap: wrap;
 const ContainerCarrinho = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+ 
 `
 const ContainerOrdenacao = styled.div`
 display: flex;
@@ -132,6 +132,7 @@ export default class Servicos extends React.Component {
     })
     this.setState({ carrinho: novoCarrinho })
     this.setState({ valorTotal: this.state.valorTotal - produto.price })
+    alert("Você tem certeza?")
   }
 
   render() {
@@ -178,7 +179,7 @@ export default class Servicos extends React.Component {
         <ContainerPaginaServicos>
           <ContainerServicos>
             <div>
-              <Text fontSize='4xl' fontFamily="cursive" color='gray.600' >Contrate os nossos serviços!</Text>
+              <Text fontSize='4xl' color='gray.600' >Contrate os nossos serviços!</Text>
 
               <Filtros
                 busca={this.state.busca}

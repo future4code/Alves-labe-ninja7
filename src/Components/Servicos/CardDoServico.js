@@ -16,11 +16,11 @@ const Teste = styled.div`
 const CardTodo = styled.div`
 
 border-radius: 10px;
-background-color:#C8D2BD;
+background-color: #cccccc;
 width: 100%;
 height: 100%;
 position: relative;
-transition: transform 0.8s;
+transition: transform 1s;
 transform-style: preserve-3d;
 text-align: center;
 :hover {
@@ -49,17 +49,13 @@ const Verso = styled.div`
 
 display: grid;
 grid-template-columns: 1fr;
-grid-template-rows: 0.5fr 0.2fr 0.2fr 1fr 1fr 0.2fr;
+grid-template-rows: 0.5fr 0.2fr 0.2fr 1.2fr 0.8fr 0.2fr;
 /* grid-template-rows: repeat(6, 1fr); */
 justify-items: center;
 align-items: center;
 padding: 20px;
 text-align: center;
 padding-top: 10px;
-
-
-
-
 
 transform: rotateY(180deg);
 position: absolute;
@@ -95,31 +91,31 @@ export default class CardDoServico extends React.Component {
                 <Teste >
                     <CardTodo>
                         <Frente>
-                            <Text fontSize='lg' fontFamily="cursive">{this.props.elemento.title.toUpperCase()}</Text>
+                            <Text fontSize='lg' fontWeight='bold' color='gray.600' >{this.props.elemento.title.toUpperCase()}</Text>
 
 
                             <Badge borderRadius='full' px='2' colorScheme='blue'>
-                                <Text fontSize='xl'>Preço: R$ {this.props.elemento.price} </Text>
+                                <Text fontSize='xl' color='gray.600'>Preço: R$ {this.props.elemento.price} </Text>
                             </Badge>
-                            <Text fontSize='lg' fontFamily="cursive">DATA: {this.props.elemento.dueDate.split("T")[0]}</Text>
+                            <Text fontSize='lg' fontWeight='bold' color='gray.600'>DATA: {this.props.elemento.dueDate.split("T")[0]}</Text>
                         </Frente>
                         <Verso>
 
 
-                            <Text fontSize='lg'  fontFamily="cursive">{this.props.elemento.title.toUpperCase()}</Text>
+                            <Text fontSize='lg' color='blue.500' >{this.props.elemento.title.toUpperCase()}</Text>
 
-                            <Text fontSize='md'  fontFamily="cursive">Preço: R$ {this.props.elemento.price}</Text>
-                            <Text fontSize='md'  fontFamily="cursive">Data: {this.props.elemento.dueDate.split("T")[0]}</Text>
+                            <Text fontSize='md' color='blue.500' >Preço: R$ {this.props.elemento.price}</Text>
+                            <Text fontSize='md' color='blue.500' >Data: {this.props.elemento.dueDate.split("T")[0]}</Text>
                             <ContainerPagamento>
                             <Box>
-                            <Text fontSize='md'  fontFamily="cursive">Formas de pagamento:</Text>
+                            <Text fontSize='md' color='blue.500' >Formas de pagamento:</Text>
                             </Box>
                             <Spacer/>
                             <Box>
                                 {listaDePagamentos}
                                 </Box>
                             </ContainerPagamento>
-                            <Text fontSize='md'  fontFamily="cursive">Descrição do Serviço: {this.props.elemento.description}</Text>
+                            <Text fontSize='md' color='blue.500' >Descrição do Serviço: {this.props.elemento.description}</Text>
 
                             <Button size='sm' onClick={() => { this.props.adicionaAoCarrinho(this.props.elemento) }}>Adicionar ao Carrinho</Button>
 

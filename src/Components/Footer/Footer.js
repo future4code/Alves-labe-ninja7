@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import labenu from "./imagens/labenu2.png"
 import logo from "./imagens/logit.png"
-import sete from "./imagens/sete.gif"
 import alves from "./imagens/alves.png"
 
 
@@ -75,16 +74,16 @@ export default class Footer extends React.Component {
               Encontre-nos no Github
           </h4>
           <ContainerGit>
-          <a href={'https://github.com/ilenaacioli'}>
+          <a href={'https://github.com/ilenaacioli'} target="_blank" rel="noopener noreferrer">
           <Git src={logo} />
           </a>
-          <a href={'https://github.com/laisrm'}>
+          <a href={'https://github.com/laisrm'} target="_blank" rel="noopener noreferrer">
           <Git src={logo} />
           </a>
-          <a href={'https://github.com/leonardojcsl'}>
+          <a href={'https://github.com/leonardojcsl'} target="_blank" rel="noopener noreferrer">
           <Git src={logo} />
           </a>
-          <a href={'https://github.com/gabrielwenchenck'}>
+          <a href={'https://github.com/gabrielwenchenck'} target="_blank" rel="noopener noreferrer">
           <Git src={logo} />
           </a>
           </ContainerGit>
@@ -93,7 +92,7 @@ export default class Footer extends React.Component {
           <h4>
               Projetado e desenvolvido pela equipe 7
           </h4>
-          <a href={'https://github.com/future4code/Alves-labe-ninja7'}>
+          <a href={'https://github.com/future4code/Alves-labe-ninja7'} target="_blank" rel="noopener noreferrer">
           <Sete src={alves} />
           </a>
       </Equipe7>
@@ -104,7 +103,7 @@ export default class Footer extends React.Component {
               CEP: 05424-150 
               
           </Endereco> 
-          <Lab href={'https://www.labenu.com.br'}>
+          <Lab href={'https://www.labenu.com.br'} target="_blank" rel="noopener noreferrer">
           <Labenu src={labenu} />
           </Lab>
       </Contato>

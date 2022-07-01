@@ -31,10 +31,10 @@ export default class Filtros extends React.Component {
         return (
             <ChakraProvider>
                 <ContainerFiltros>
-                    <Text fontSize='lg'  fontFamily="cursive" color='gray.600'>Filtrar por:</Text>
+                    <Text fontSize='lg'   color='gray.600'>Filtrar por:</Text>
                     <FiltrosValorBusca>
                         <Filtro>
-                            <Text fontSize='md'  fontFamily="cursive" color='blue.300'>Valor mínimo:</Text>
+                            <Text fontSize='md' fontWeight='bold'  color='blue.400'>Valor mínimo:</Text>
                             <InputGroup>
                                 <InputLeftElement
                                     pointerEvents='none'
@@ -46,7 +46,7 @@ export default class Filtros extends React.Component {
                             </InputGroup>
                         </Filtro>
                         <Filtro>
-                            <Text fontSize='md'  fontFamily="cursive" color='blue.300'>Valor máximo:</Text>
+                            <Text fontSize='md' fontWeight='bold'  color='blue.400'>Valor máximo:</Text>
                             <InputGroup>
                                 <InputLeftElement
                                     pointerEvents='none'
@@ -58,7 +58,7 @@ export default class Filtros extends React.Component {
                             </InputGroup>
                         </Filtro>
                         <Filtro>
-                                <Text fontSize='md'  fontFamily="cursive" color='blue.300'>Busca por nome:</Text>
+                                <Text fontSize='md'  fontWeight='bold' color='blue.400'>Busca por nome:</Text>
                             <InputGroup>
                                 <Input value={this.props.busca} placeholder="Pesquisa" onChange={this.props.atualizarBusca} />
                             </InputGroup>

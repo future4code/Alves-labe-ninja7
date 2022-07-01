@@ -24,14 +24,6 @@ const Titulo = styled.div`
   font-weight: bold;
 `;
 
-const Lista = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-`;
 
 const Elemento = styled.div`
   display: flex;
@@ -74,6 +66,12 @@ const Finalizar = styled.div`
 `;
 
 export default class Carrinho extends React.Component {
+
+ finalizaCompra =() => {
+
+  alert("Compra finalizada! Seu ninja está a caminho!")
+ }
+
   render() {
     const listaDoCarrinho = this.props.carrinho.map((produto, indice) => {
       return (
@@ -101,7 +99,7 @@ export default class Carrinho extends React.Component {
           {listaDoCarrinho}
           <Finalizar>
             <p>Total: R$ {this.props.valorTotal}</p>
-            <Button colorScheme="blue">Finalizar Compra</Button>
+            <Button onClick={this.finalizaCompra} colorScheme="blue">Finalizar Compra</Button>
           </Finalizar>
         </ContainerCarrinho>
       </ChakraProvider>

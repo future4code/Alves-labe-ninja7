@@ -14,10 +14,10 @@ border: none
 `
 const ContainerBotao = styled.div`
 
-margin: 40px 100px 0  0;
 display: flex;
 justify-content: space-evenly;
 padding: 20px;
+
 `
 
 
@@ -56,6 +56,8 @@ export default class Header extends React.Component {
         <Letreiro src={letreiro} />
         </ContainerLogo>
         <ContainerBotao>
+        <Button colorScheme='blue'  onClick={()=>this.props.mudaTela("home")}>Home</Button>
+        <Bola>...</Bola>
         <Button colorScheme='blue'  onClick={()=>this.props.mudaTela("cadastros")}>Seja um ninja</Button> 
         <Bola>...</Bola>
         <Button colorScheme='blue' onClick={() => this.props.mudaTela("servicos")}>Contrate um ninja</Button>
