@@ -43,21 +43,25 @@ const DivDoSelect = styled.div`
 
 const DivAuxiliarDescritiva = styled.div`
   display: block; 
-  width: 50%; 
-  justify-content: space-between;
+  width: 50%;
+  margin-top: 18vh;
+  justify-content: space-evenly;
   color: #394F61;
 `
 const Header1 = styled.h1`
   display: flex;  
   justify-content: center;
-  font-size: xxx-large;
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
 `
 const InformativoCadastro = styled.p`
   display: flex;
   width: 30vw;  
-  margin-top: 2vh;
+  margin-top: 5vh;
   margin-left: 10vw;
-  font-size: x-large
+  font-size: large;
+  text-align: center;
 `
 
 const BotaoEnviar = styled.button`
@@ -138,7 +142,7 @@ criaServico = () => {
         <Header1>Seja um Ninja em segundos!</Header1>
         <InformativoCadastro>
         Em questão de segundos você pode cadastrar seu serviço, descrevê-lo da maneira que melhor lhe apetecer, informar o valor do mesmo
-        e um prazo para expiração da oferta. Por fim, escolha suas formas de pagamento e pronto: Você já um Ninja7
+        e um prazo para expiração da oferta. Por fim, escolha as formas de pagamento e pronto: Você já é um Ninja7
         </InformativoCadastro>               
         </DivAuxiliarDescritiva>
       <ContainerCadastro>
