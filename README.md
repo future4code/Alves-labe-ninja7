@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+Sejam bem vindos ao LabeNinjas!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ninja7
 
-## Available Scripts
+Descrição
 
-In the project directory, you can run:
+Este projeto tem como objetivo demonstrar os conhecimentos adquiridos no React e colocar em prática suas funcionalidades e particularidades. O projeto
+foi elaborado visando clareza e simplicidade na experiência do usuário que deseja adiciona seus serviços ao nosso banco de dados e também para o usuário
+que deseja contratar um Ninja de forma trivial.
 
-### `npm start`
+Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O projeto é dividido em três páginas sendo as três operando em plenas condições de uso e, sendo assim, possível ao usuário utilizar todas as funcionalidades
+propostas pelo Ninja7. Em nossa página Home, é possível acessar as páginas auxiliares para cadastro de Ninjas e para contratação dos mesmos. Selecionando a página
+de cadastro de ninjas, é possível encontrar de forma cognoscível todas as funcionalidades primordiais para que o Ninja se cadastre em questão de segundos. Tratando-se
+da experiência do contratante, ao selecionar a página de contratar um Ninja, é possível que o usuário localize o serviço desejado da maneira que melhor pretender. Podem
+ser selecionadas com filtros de valor, nome e prazos. Dentro da mesma página, sem necessidade de trocas longas, o usuário consegue visualizar seu carrinho e finalizar a 
+compra de maneira prática 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Utilização
 
-### `npm test`
+O usuário acessará o link de surge informado na descrição deste projeto e com ele terá acesso a plataforma do projeto sem
+a necessidade de rodar o projeto em sua máquina. Dentro do mesmo, as funcionalidades supracitadas informam perfeitamente a
+melhor maneira de acessar e utilizar o projeto.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Link do Surge
+https://ninja-7.surge.sh/
 
-### `npm run build`
+Tecnologias Utilizadas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React, JavaScript, Styled Components, Chacra, Axios.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Autoria
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Gabriel Inacio Wenchenck de Carvalho
 
-### `npm run eject`
+Ilena Acioli dos Santos
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Laís Rodrigues Martins
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Leonardo José Couto Silva Lopes de Souza 
